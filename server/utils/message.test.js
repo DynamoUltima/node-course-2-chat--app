@@ -1,4 +1,5 @@
 var expect = require('expect');
+var moment = require('moment');
 
 var {generateMessage,generateLocationMessage}= require('./message');
 
@@ -25,5 +26,19 @@ describe('generateLocationMessage',()=>{
 
         expect(message.createdAt).toBeA('number');
         expect(message).toInclude({from,url})
+    })
+})
+
+
+describe('generateCreatedAt',()=>{
+    it('should generate  the current time',()=>{
+        var date= new Date().getTime();
+        var moomentDate = moment().valueOf();
+
+        expect(date).toEqual(moomentDate);
+       // expect(date).toEqual(moment().add(7,'years'))
+
+
+    
     })
 })
